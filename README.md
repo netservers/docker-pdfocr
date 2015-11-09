@@ -32,5 +32,5 @@ Example:
 ```bash
 $ cd ~
 $ mkdir ocr_in ocr_out
-$ docker run -d --name pdfocr -v ~/ocr_in:/inbox -v ~/ocr_out:/outbox netservers/pdfocr
+$ docker run -d --name pdfocr -v ~/ocr_in:/inbox -v ~/ocr_out:/outbox netservers/docker-pdfocr
 ```
