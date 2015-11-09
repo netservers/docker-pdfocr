@@ -1,17 +1,17 @@
 This project creates a Docker image that automatically turns image-based 
 (scanned) PDFs into searchable PDFs.
 
-This is done primarily through the use of the excellent [gkovacs/pdfocr ruby
-script][1].
+This is done primarily through the use of the excellent [gkovacs/pdfocr][1] ruby
+script.
 
 In addition to that script, ghostscript is also used to force the
 page size to A4. Ideally that feature should be parameterised, but for now this
-is a hard-coded feature.
+is hard-coded.
 
 [1]: https://github.com/gkovacs/pdfocr
 
 This container requires you to create two volumes, and inbox and an outbox. Any
-PDF files dropped in the outbox are converted to searchable PDFs and dropped in
+PDF files dropped in the inbox are converted to searchable PDFs and dropped in
 the outbox.
 
 Notes:
