@@ -1,0 +1,28 @@
+#!/bin/bash
+set -e
+
+if [ ! -d /inbox/processed ]; then
+  mkdir /inbox/processed
+fi
+
+fileArray=( "$@" )
+
+if [ ${#fileArray[@]} -eq 0 ]; then
+  cd /inbox
+  fileArray=(*)
+fi
+
+for file in "${fileArray[@]}"; do
+  if [ ! -f "/inbox/$file" ]; then
+    continue
+  fi
+
+  file_lc=${file,,}
+
+  if [ ${file_lc: -4} == ".pdf" ]; then
+    /usr/local/bin/pdfocr -i "/inbox/$file" -o "/outbox/$file"
+    mv "/inbox/$file" "/inbox/processed/$file"
+  else
+    mv "/inbox/$file" "/outbox/$file"
+  fi
+done
