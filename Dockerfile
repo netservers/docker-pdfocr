@@ -32,13 +32,10 @@ RUN mkdir /inbox /outbox
 
 VOLUME ["/inbox","/outbox"]
 
-RUN \
-  apt-get install -y incron \
-  && echo 'pdfocr' >> /etc/incron.allow
+RUN echo 'pdfocr' >> /etc/incron.allow
 
 ADD incron.pdfocr /var/spool/incron/pdfocr
 ADD do_ocr /usr/local/bin/
 ADD entrypoint.sh /entrypoint.sh
 
-#CMD ["/usr/sbin/incrond","-n"]
 CMD ["/entrypoint.sh"]
