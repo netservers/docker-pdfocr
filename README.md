@@ -19,11 +19,11 @@ Notes:
 * The default process in the container is incrond. This watches the inbox
 for new files and immediately triggers the OCR script when new files are
 added.
-* A user account matching the UID and GID of the outbox owner is create
-container creation time. This user account is used to create the
+* A user account matching the UID and GID of the outbox owner is created at
+container creation time. This user account is used to generate the
 searchable PDF files, so the reulting files should be readable and
 writable for the owner of the outbox.
-* After processing the original PDf is moved to inbox/processed.
+* After processing the original PDF is moved to inbox/processed.
 This presumes that the inbox is also writable to the owner of the
 outbox. To keep things simple it's probably best that the same user owns
 both the inbox and the outbox.
